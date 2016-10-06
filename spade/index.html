@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `spade` crate.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, spade">
+
+    <title>spade - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'></p><script>window.sidebarCurrent = {name: 'spade', ty: 'mod', relpath: '../'};</script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Crate <a class='mod' href=''>spade</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-0' class='srclink' href='../src/spade/src/lib.rs.html#16-63' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'>
+<h1 id='spade' class='section-header'><a href='#spade'>Spade</a></h1>
+<p>Spade (SPAtial DatastructurEs, obviously!) implements a few nifty datastructures optimized for spatial access operations.
+The first major datastructure is an n-dimensional r*-tree (<a href="https://en.wikipedia.org/wiki/R-tree">wikipedia</a>) for efficient nearest-neighbor and point lookup queries.
+The second datastructures implements a 2D delaunay triangulation (<a href="https://en.wikipedia.org/wiki/Delaunay_triangulation">wikipedia</a>) backed by an r-tree for fast 
+nearest neighbor lookup. The triangulation also implements natural neighbor interpolation (<a href="https://en.wikipedia.org/wiki/Natural_neighbor">wikipedia</a>) 
+which offers a smooth interpolation in a delaunay triangulation.
+All classes are purely written in (safe) rust, the package currently supports vectors from the nalgebra and cgmath crates.</p>
+
+<h1 id='features' class='section-header'><a href='#features'>Features</a></h1>
+<ul>
+<li>An n-dimensional R-Tree: <code>RTree</code></li>
+<li>A 2D delaunay triangulation: <code>DelaunayTriangulation</code>
+
+<ul>
+<li>Supports integral and floating point vectors as input</li>
+<li>Uses exact predicates to avoid floating point rounding issues, see: <code>FloatKernel</code></li>
+<li>Natural neighbor interpolation</li>
+</ul></li>
+</ul>
+</div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='primitives/index.html'
+                                  title='spade::primitives'>primitives</a></td>
+                           <td class='docblock short'>
+                                <p>Contains some useful primitives that can be inserted into r-trees.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='testutils/index.html'
+                                  title='spade::testutils'>testutils</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.AdaptiveIntKernel.html'
+                                  title='spade::AdaptiveIntKernel'>AdaptiveIntKernel</a></td>
+                           <td class='docblock short'>
+                                <p>Delaunay kernel for integral coordinates with a larger value range.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.AllEdgesIterator.html'
+                                  title='spade::AllEdgesIterator'>AllEdgesIterator</a></td>
+                           <td class='docblock short'>
+                                <p>An iterator over all edges contained in a subdivision.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.AllVerticesIterator.html'
+                                  title='spade::AllVerticesIterator'>AllVerticesIterator</a></td>
+                           <td class='docblock short'>
+                                <p>An iterator over all vertices in a subdivision.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.BoundingRect.html'
+                                  title='spade::BoundingRect'>BoundingRect</a></td>
+                           <td class='docblock short'>
+                                <p>An axis aligned minimal bounding rectangle.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.DelaunayTriangle.html'
+                                  title='spade::DelaunayTriangle'>DelaunayTriangle</a></td>
+                           <td class='docblock short'>
+                                <p>Represents a triangle in a delaunay triangulation.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.DelaunayTriangleIterator.html'
+                                  title='spade::DelaunayTriangleIterator'>DelaunayTriangleIterator</a></td>
+                           <td class='docblock short'>
+                                <p>Iterator over all triangles in a delaunay triangulation.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.DelaunayTriangulation.html'
+                                  title='spade::DelaunayTriangulation'>DelaunayTriangulation</a></td>
+                           <td class='docblock short'>
+                                <p>A 2D Delaunay triangulation.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.FloatKernel.html'
+                                  title='spade::FloatKernel'>FloatKernel</a></td>
+                           <td class='docblock short'>
+                                <p>Offers a fast, precise kernel working with <code>f64</code> coordinates.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.RTree.html'
+                                  title='spade::RTree'>RTree</a></td>
+                           <td class='docblock short'>
+                                <p>A rust implementation of n dimensional r*-trees</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.RTreeIterator.html'
+                                  title='spade::RTreeIterator'>RTreeIterator</a></td>
+                           <td class='docblock short'>
+                                <p>Iterates over all entries in an r-tree.
+Returned by <code>RTree::iter()</code></p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.TrivialKernel.html'
+                                  title='spade::TrivialKernel'>TrivialKernel</a></td>
+                           <td class='docblock short'>
+                                <p>Offers fast, possibly approximative and possibly inaccurate geometric calculations.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.VertexHandle.html'
+                                  title='spade::VertexHandle'>VertexHandle</a></td>
+                           <td class='docblock short'>
+                                <p>A reference to a vertex in a triangulation.
+Note that this handle dereferences to the data it represents.</p>
+                           </td>
+                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.PositionInTriangulation.html'
+                                  title='spade::PositionInTriangulation'>PositionInTriangulation</a></td>
+                           <td class='docblock short'>
+                                <p>Yields information about a point&#39;s position in triangulation.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.RTreeNodeIterator.html'
+                                  title='spade::RTreeNodeIterator'>RTreeNodeIterator</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.DelaunayKernel.html'
+                                  title='spade::DelaunayKernel'>DelaunayKernel</a></td>
+                           <td class='docblock short'>
+                                <p>Determines how a delaunay triangulation performs its basic geometry computation.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.HasPosition.html'
+                                  title='spade::HasPosition'>HasPosition</a></td>
+                           <td class='docblock short'>
+                                <p>An object with a well defined location.
+Since this trait also implements <code>SpatialObject</code>, <code>HasPosition</code> can serve as a quick and
+easy implementation of your own pointlike objects that can be inserted into r-trees:</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.HasPosition2D.html'
+                                  title='spade::HasPosition2D'>HasPosition2D</a></td>
+                           <td class='docblock short'>
+                                <p>Like <code>HasPosition</code>, but will only work for two dimensional vectors.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.SpadeFloat.html'
+                                  title='spade::SpadeFloat'>SpadeFloat</a></td>
+                           <td class='docblock short'>
+                                <p>Trait for <code>SpadeNum</code>s that are also a floating point number.
+Used by all operations that require precise division.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.SpadeNum.html'
+                                  title='spade::SpadeNum'>SpadeNum</a></td>
+                           <td class='docblock short'>
+                                <p>Scalar that can be used for spade&#39;s datastructures will need to implement
+this trait. Can be an integer or floating point type.
+Note that <code>copy</code> is not necessary.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.SpatialObject.html'
+                                  title='spade::SpatialObject'>SpatialObject</a></td>
+                           <td class='docblock short'>
+                                <p>Describes objects that can be located by r-trees.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.ThreeDimensional.html'
+                                  title='spade::ThreeDimensional'>ThreeDimensional</a></td>
+                           <td class='docblock short'>
+                                <p>A three dimensional Vector.
+Some algorithms will only work with three dimensional vectors, this trait makes
+sure that only such vectors can be used.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.TwoDimensional.html'
+                                  title='spade::TwoDimensional'>TwoDimensional</a></td>
+                           <td class='docblock short'>
+                                <p>A two dimensional Vector.
+Some datastructures will only work if two dimensional vectors are given,
+this trait makes sure that only such vectors can be passed.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.VectorN.html'
+                                  title='spade::VectorN'>VectorN</a></td>
+                           <td class='docblock short'>
+                                <p>Abstraction over vectors in different dimensions.</p>
+                           </td>
+                       </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.FixedVertexHandle.html'
+                                  title='spade::FixedVertexHandle'>FixedVertexHandle</a></td>
+                           <td class='docblock short'>
+                                <p>A <code>&#39;static</code> handle to a vertex. This handle can be made
+persistent and will remain valid until the vertex it refers to
+is removed.</p>
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "spade";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

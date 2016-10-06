@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `SimpleEdge` struct in crate `spade`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, SimpleEdge">
+
+    <title>spade::primitives::SimpleEdge - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>spade</a>::<wbr><a href='index.html'>primitives</a></p><script>window.sidebarCurrent = {name: 'SimpleEdge', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>spade</a>::<wbr><a href='index.html'>primitives</a>::<wbr><a class='struct' href=''>SimpleEdge</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-2167' class='srclink' href='../../src/spade/src/primitives.rs.html#32-37' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct SimpleEdge&lt;V:&nbsp;<a class='trait' href='../../spade/trait.VectorN.html' title='spade::VectorN'>VectorN</a>&gt; {
+    pub from: V,
+    pub to: V,
+}</pre><div class='docblock'><p>An edge defined by it&#39;s two end points.</p>
+</div><h2 class='fields'>Fields</h2><span id='structfield.from' class='structfield'><code>from: V</code>
+                           </span><span class='stab '></span><div class='docblock'><p>The edge&#39;s origin.</p>
+</div><span id='structfield.to' class='structfield'><code>to: V</code>
+                           </span><span class='stab '></span><div class='docblock'><p>The edge&#39;s destination.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl&lt;V&gt; <a class='struct' href='../../spade/primitives/struct.SimpleEdge.html' title='spade::primitives::SimpleEdge'>SimpleEdge</a>&lt;V&gt; <span class='where'>where V: <a class='trait' href='../../spade/trait.VectorN.html' title='spade::VectorN'>VectorN</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-2195' class='srclink' href='../../src/spade/src/primitives.rs.html#79-97' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(from: V, to: V) -&gt; <a class='struct' href='../../spade/primitives/struct.SimpleEdge.html' title='spade::primitives::SimpleEdge'>SimpleEdge</a>&lt;V&gt;</code></h4>
+<div class='docblock'><p>Creates a new edge from <code>from</code> to <code>to</code>.</p>
+</div><h4 id='method.is_projection_on_edge' class='method'><code>fn <a href='#method.is_projection_on_edge' class='fnname'>is_projection_on_edge</a>(&amp;self, query_point: &amp;V) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Projects a point onto the infinite line going through the
+edge&#39;s start and end point and returns <code>true</code> if the projected
+points lies between <code>from</code> and <code>to</code>.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;V&gt; <a class='struct' href='../../spade/primitives/struct.SimpleEdge.html' title='spade::primitives::SimpleEdge'>SimpleEdge</a>&lt;V&gt; <span class='where'>where V: <a class='trait' href='../../spade/trait.TwoDimensional.html' title='spade::TwoDimensional'>TwoDimensional</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-2207' class='srclink' href='../../src/spade/src/primitives.rs.html#99-107' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.side_query' class='method'><code>fn <a href='#method.side_query' class='fnname'>side_query</a>(&amp;self, q: &amp;V) -&gt; <a class='struct' href='../../spade/primitives/struct.EdgeSideInfo.html' title='spade::primitives::EdgeSideInfo'>EdgeSideInfo</a>&lt;V::Scalar&gt;</code></h4>
+<div class='docblock'><p>Determines on which side of this edge a given point lies.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;V&gt; <a class='struct' href='../../spade/primitives/struct.SimpleEdge.html' title='spade::primitives::SimpleEdge'>SimpleEdge</a>&lt;V&gt; <span class='where'>where V: <a class='trait' href='../../spade/trait.VectorN.html' title='spade::VectorN'>VectorN</a>, V::Scalar: <a class='trait' href='../../spade/trait.SpadeFloat.html' title='spade::SpadeFloat'>SpadeFloat</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-2215' class='srclink' href='../../src/spade/src/primitives.rs.html#109-148' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.nearest_point' class='method'><code>fn <a href='#method.nearest_point' class='fnname'>nearest_point</a>(&amp;self, query_point: &amp;V) -&gt; V</code></h4>
+<div class='docblock'><p>Yields the nearest point on this edge.</p>
+</div><h4 id='method.projection_distance2' class='method'><code>fn <a href='#method.projection_distance2' class='fnname'>projection_distance2</a>(&amp;self, query_point: &amp;V) -&gt; V::Scalar</code></h4>
+<div class='docblock'><p>Returns the minimal squared distance of a given point to its
+projection onto the infinite edge going through this edge&#39;s start 
+and end point.</p>
+</div><h4 id='method.project_point' class='method'><code>fn <a href='#method.project_point' class='fnname'>project_point</a>(&amp;self, query_point: &amp;V) -&gt; V::Scalar</code></h4>
+<div class='docblock'><p>Projects a point on this line and returns its relative position.</p>
+
+<p>This method will return a value between 0. and 1. (linearly interpolated) if the projected
+point lies between <code>self.from</code> and <code>self.to</code>, a value close to zero (due to rounding errors)
+if the projected point is equal to <code>self.from</code> and a value smaller than zero if the projected
+point lies &quot;before&quot; <code>self.from</code>. Analogously, a value close to 1. or greater than 1. is
+returned if the projected point is equal to or lies behind <code>self.to</code>.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl&lt;V:&nbsp;<a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> + <a class='trait' href='../../spade/trait.VectorN.html' title='spade::VectorN'>VectorN</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../spade/primitives/struct.SimpleEdge.html' title='spade::primitives::SimpleEdge'>SimpleEdge</a>&lt;V&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-2153' class='srclink' href='../../src/spade/src/primitives.rs.html#31' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;V:&nbsp;<a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> + <a class='trait' href='../../spade/trait.VectorN.html' title='spade::VectorN'>VectorN</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../spade/primitives/struct.SimpleEdge.html' title='spade::primitives::SimpleEdge'>SimpleEdge</a>&lt;V&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-2161' class='srclink' href='../../src/spade/src/primitives.rs.html#31' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../spade/primitives/struct.SimpleEdge.html' title='spade::primitives::SimpleEdge'>SimpleEdge</a>&lt;V&gt;</code></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;V:&nbsp;<a class='trait' href='../../spade/trait.VectorN.html' title='spade::VectorN'>VectorN</a>&gt; <a class='trait' href='../../spade/trait.SpatialObject.html' title='spade::SpatialObject'>SpatialObject</a> for <a class='struct' href='../../spade/primitives/struct.SimpleEdge.html' title='spade::primitives::SimpleEdge'>SimpleEdge</a>&lt;V&gt; <span class='where'>where V::Scalar: <a class='trait' href='../../spade/trait.SpadeFloat.html' title='spade::SpadeFloat'>SpadeFloat</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-2235' class='srclink' href='../../src/spade/src/primitives.rs.html#150-161' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Vector' class='type'><code>type <a href='../../spade/trait.SpatialObject.html#associatedtype.Vector' class='type'>Vector</a> = V</code></h4>
+<div class='docblock'><p>The object&#39;s vector type.</p>
+</div><h4 id='method.mbr' class='method'><code>fn <a href='../../spade/trait.SpatialObject.html#tymethod.mbr' class='fnname'>mbr</a>(&amp;self) -&gt; <a class='struct' href='../../spade/struct.BoundingRect.html' title='spade::BoundingRect'>BoundingRect</a>&lt;V&gt;</code></h4>
+<div class='docblock'><p>Returns the object&#39;s minimal bounding rectangle. <a href="../../spade/trait.SpatialObject.html#tymethod.mbr">Read more</a></p>
+</div><h4 id='method.distance2' class='method'><code>fn <a href='../../spade/trait.SpatialObject.html#tymethod.distance2' class='fnname'>distance2</a>(&amp;self, point: &amp;V) -&gt; V::Scalar</code></h4>
+<div class='docblock'><p>Returns the squared euclidean distance from the object&#39;s contour. Returns a value samller than zero if the point is contained within the object. <a href="../../spade/trait.SpatialObject.html#tymethod.distance2">Read more</a></p>
+</div><h4 id='method.contains' class='method'><code>fn <a href='../../spade/trait.SpatialObject.html#method.contains' class='fnname'>contains</a>(&amp;self, point: &amp;Self::Vector) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns true if a given point is contained in this object.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "spade";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

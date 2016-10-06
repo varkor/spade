@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `VertexHandle` struct in crate `spade`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, VertexHandle">
+
+    <title>spade::VertexHandle - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>spade</a></p><script>window.sidebarCurrent = {name: 'VertexHandle', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>spade</a>::<wbr><a class='struct' href=''>VertexHandle</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-3035' class='srclink' href='../src/spade/src/planarsubdivision.rs.html#335-342' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct VertexHandle&lt;'a,&nbsp;V,&nbsp;K&gt; <span class='where'>where V: <a class='trait' href='../spade/trait.HasPosition2D.html' title='spade::HasPosition2D'>HasPosition2D</a> + 'a, K: 'a, V::Vector: <a class='trait' href='../spade/trait.TwoDimensional.html' title='spade::TwoDimensional'>TwoDimensional</a></span> {
+    // some fields omitted
+}</pre><div class='docblock'><p>A reference to a vertex in a triangulation.
+Note that this handle dereferences to the data it represents.</p>
+
+<h1 id='example' class='section-header'><a href='#example'>Example</a></h1>
+<pre class='rust rust-example-rendered'>
+
+
+  <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>delaunay</span> <span class='op'>=</span> <span class='ident'>DelaunayTriangulation</span>::<span class='ident'>default</span>();
+  <span class='kw'>let</span> <span class='ident'>fixed_handle</span> <span class='op'>=</span> <span class='ident'>delaunay</span>.<span class='ident'>insert</span>(<span class='ident'>Vector2</span>::<span class='ident'>new</span>(<span class='number'>0.0</span>, <span class='number'>1.0</span>));
+  <span class='ident'>delaunay</span>.<span class='ident'>insert</span>(<span class='ident'>Vector2</span>::<span class='ident'>new</span>(<span class='number'>0.0</span>, <span class='op'>-</span><span class='number'>1.0</span>));
+  <span class='ident'>delaunay</span>.<span class='ident'>insert</span>(<span class='ident'>Vector2</span>::<span class='ident'>new</span>(<span class='number'>1.0</span>, <span class='number'>0.0</span>));
+  <span class='kw'>let</span> <span class='ident'>vertex_handle</span> <span class='op'>=</span> <span class='ident'>delaunay</span>.<span class='ident'>handle</span>(<span class='ident'>fixed_handle</span>);
+  <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>vertex_handle</span>.<span class='ident'>num_neighbors</span>(), <span class='number'>2</span>);
+  <span class='comment'>// This dereferences into a Vector2</span>
+  <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='op'>*</span><span class='ident'>vertex_handle</span>, <span class='ident'>Vector2</span>::<span class='ident'>new</span>(<span class='number'>0.0</span>, <span class='number'>1.0</span>));</pre>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl&lt;'a,&nbsp;V:&nbsp;<a class='trait' href='../spade/trait.HasPosition2D.html' title='spade::HasPosition2D'>HasPosition2D</a>,&nbsp;K&gt; <a class='struct' href='../spade/struct.VertexHandle.html' title='spade::VertexHandle'>VertexHandle</a>&lt;'a,&nbsp;V,&nbsp;K&gt; <span class='where'>where K: <a class='trait' href='../spade/trait.DelaunayKernel.html' title='spade::DelaunayKernel'>DelaunayKernel</a>&lt;V::Vector::Scalar&gt;, V::Vector: <a class='trait' href='../spade/trait.TwoDimensional.html' title='spade::TwoDimensional'>TwoDimensional</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-3181' class='srclink' href='../src/spade/src/planarsubdivision.rs.html#521-596' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fixed_neighbors' class='method'><code>fn <a href='#method.fixed_neighbors' class='fnname'>fixed_neighbors</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;'a [</a><a class='type' href='../spade/type.FixedVertexHandle.html' title='spade::FixedVertexHandle'>FixedVertexHandle</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a></code></h4>
+<div class='docblock'><p>Returns the neighbors of this vertex as fixed handles</p>
+</div><h4 id='method.neighbors' class='method'><code>fn <a href='#method.neighbors' class='fnname'>neighbors</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;<a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html' title='core::iter::iterator::Iterator'>Iterator</a>&lt;Item=<a class='struct' href='../spade/struct.VertexHandle.html' title='spade::VertexHandle'>VertexHandle</a>&lt;'a,&nbsp;V,&nbsp;K&gt;&gt; + 'a&gt;</code></h4>
+<div class='docblock'><p>Returns the neighbors an iterator over the neighbors of this vertex.</p>
+</div><h4 id='method.out_edges' class='method'><code>fn <a href='#method.out_edges' class='fnname'>out_edges</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;<a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html' title='core::iter::iterator::Iterator'>Iterator</a>&lt;Item=EdgeHandle&lt;'a,&nbsp;V,&nbsp;K&gt;&gt; + 'a&gt;</code></h4>
+<div class='docblock'><p>Returns an iterator over all out edges of this vertex.</p>
+</div><h4 id='method.sector_info' class='method'><code>fn <a href='#method.sector_info' class='fnname'>sector_info</a>(&amp;self, point: &amp;V::Vector) -&gt; SectorInfo</code></h4>
+<div class='docblock'><p>Returns information about the sector in which a given point is contained.
+A &quot;Sector&quot; is the circle segment between two adjacent out edges.</p>
+</div><h4 id='method.num_neighbors' class='method'><code>fn <a href='#method.num_neighbors' class='fnname'>num_neighbors</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
+<div class='docblock'><p>Returns the number of neighbors of this point.</p>
+</div><h4 id='method.fix' class='method'><code>fn <a href='#method.fix' class='fnname'>fix</a>(&amp;self) -&gt; <a class='type' href='../spade/type.FixedVertexHandle.html' title='spade::FixedVertexHandle'>FixedVertexHandle</a></code></h4>
+<div class='docblock'><p>Returns this handle as <code>FixedVertexHandle</code>.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl&lt;'a,&nbsp;V,&nbsp;K&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../spade/struct.VertexHandle.html' title='spade::VertexHandle'>VertexHandle</a>&lt;'a,&nbsp;V,&nbsp;K&gt; <span class='where'>where V: <a class='trait' href='../spade/trait.HasPosition2D.html' title='spade::HasPosition2D'>HasPosition2D</a> + 'a, K: <a class='trait' href='../spade/trait.DelaunayKernel.html' title='spade::DelaunayKernel'>DelaunayKernel</a>&lt;V::Vector::Scalar&gt; + 'a, V::Vector: <a class='trait' href='../spade/trait.TwoDimensional.html' title='spade::TwoDimensional'>TwoDimensional</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-3042' class='srclink' href='../src/spade/src/planarsubdivision.rs.html#344-351' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../spade/struct.VertexHandle.html' title='spade::VertexHandle'>VertexHandle</a>&lt;'a,&nbsp;V,&nbsp;K&gt;</code></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;'a,&nbsp;V,&nbsp;K&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../spade/struct.VertexHandle.html' title='spade::VertexHandle'>VertexHandle</a>&lt;'a,&nbsp;V,&nbsp;K&gt; <span class='where'>where V: <a class='trait' href='../spade/trait.HasPosition2D.html' title='spade::HasPosition2D'>HasPosition2D</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> + 'a, K: <a class='trait' href='../spade/trait.DelaunayKernel.html' title='spade::DelaunayKernel'>DelaunayKernel</a>&lt;V::Vector::Scalar&gt;, V::Vector: <a class='trait' href='../spade/trait.TwoDimensional.html' title='spade::TwoDimensional'>TwoDimensional</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-3048' class='srclink' href='../src/spade/src/planarsubdivision.rs.html#353-362' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;'a,&nbsp;V,&nbsp;K&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Deref</a> for <a class='struct' href='../spade/struct.VertexHandle.html' title='spade::VertexHandle'>VertexHandle</a>&lt;'a,&nbsp;V,&nbsp;K&gt; <span class='where'>where V: <a class='trait' href='../spade/trait.HasPosition2D.html' title='spade::HasPosition2D'>HasPosition2D</a>, V::Vector: <a class='trait' href='../spade/trait.TwoDimensional.html' title='spade::TwoDimensional'>TwoDimensional</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-3226' class='srclink' href='../src/spade/src/planarsubdivision.rs.html#598-606' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Target' class='type'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html#associatedtype.Target' class='type'>Target</a> = V</code></h4>
+<div class='docblock'><p>The resulting type after dereferencing</p>
+</div><h4 id='method.deref' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html#tymethod.deref' class='fnname'>deref</a>(&amp;self) -&gt; &amp;V</code></h4>
+<div class='docblock'><p>The method called to dereference a value</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "spade";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>
