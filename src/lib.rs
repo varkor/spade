@@ -24,9 +24,9 @@
 //! # Supported point types
 //! Spade works well with points from the `nalgebra` and `cgmath` packages. Also, fixed size arrays of size 2, 3 and 4 are
 //! supported. Also own vector types can be defined.
-//! Please note that, due to the way cargo resolves dependencies, there might be issues when using spade combined with cgmath 
+//! Please note that, due to the way cargo resolves dependencies, there might be issues when using spade combined with cgmath
 //! or nalgebra: every time spade updates these libraries, the using code must be update too, even if spade would still work
-//!  with the older version. To avoid this, consider switching to fixed size arrays as points until 
+//!  with the older version. To avoid this, consider switching to fixed size arrays as points until
 //! [public / private dependencies make their way into cargo](https://github.com/rust-lang/rust/issues/44663).
 
 
@@ -70,4 +70,4 @@ pub mod rtree;
 
 pub use traits::*;
 pub use boundingrect::*;
-pub use point_traits::{PointN, TwoDimensional, ThreeDimensional};
+pub use point_traits::{PointN, TwoDimensional, ThreeDimensional, PointNExtensions};

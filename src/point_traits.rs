@@ -148,7 +148,7 @@ pub trait ThreeDimensional : PointN {
     /// The cross product of this point and another.
     fn cross(&self, other: &Self) -> Self {
         let mut result = Self::new();
-        *result.nth_mut(0) = self.nth(1).clone() * other.nth(2).clone() 
+        *result.nth_mut(0) = self.nth(1).clone() * other.nth(2).clone()
             - self.nth(2).clone() * other.nth(1).clone();
         *result.nth_mut(1) = self.nth(2).clone() * other.nth(0).clone()
             - self.nth(0).clone() * other.nth(2).clone();
@@ -170,7 +170,7 @@ impl <S: SpadeNum + Copy> PointN for [S; 2] {
 
     fn nth(&self, index: usize) -> &S { &self[index] }
     fn nth_mut(&mut self, index: usize) -> &mut S { &mut self[index] }
-    
+
     fn from_value(value: Self::Scalar) -> Self {
         [value; 2]
     }
@@ -182,7 +182,7 @@ impl <S: SpadeNum + Copy> PointN for [S; 3] {
 
     fn nth(&self, index: usize) -> &S { &self[index] }
     fn nth_mut(&mut self, index: usize) -> &mut S { &mut self[index] }
-    
+
     fn from_value(value: Self::Scalar) -> Self {
         [value; 3]
     }
@@ -190,12 +190,12 @@ impl <S: SpadeNum + Copy> PointN for [S; 3] {
 
 impl <S: SpadeNum + Copy> PointN for [S; 4] {
     type Scalar = S;
-    
+
     fn dimensions() -> usize { 4 }
 
     fn nth(&self, index: usize) -> &S { &self[index] }
     fn nth_mut(&mut self, index: usize) -> &mut S { &mut self[index] }
-    
+
     fn from_value(value: Self::Scalar) -> Self {
         [value; 4]
     }
@@ -203,7 +203,7 @@ impl <S: SpadeNum + Copy> PointN for [S; 4] {
 
 impl<S: SpadeNum + cg::BaseNum> PointN for cg::Point2<S> {
     type Scalar = S;
-    
+
     fn dimensions() -> usize { 2 }
 
     fn nth(&self, index: usize) -> &S { &self[index] }
@@ -216,7 +216,7 @@ impl<S: SpadeNum + cg::BaseNum> PointN for cg::Point2<S> {
 
 impl<S: SpadeNum + cg::BaseNum> PointN for cg::Point3<S> {
     type Scalar = S;
-    
+
     fn dimensions() -> usize { 3 }
 
     fn nth(&self, index: usize) -> &S { &self[index] }
@@ -229,7 +229,7 @@ impl<S: SpadeNum + cg::BaseNum> PointN for cg::Point3<S> {
 
 impl<S: SpadeNum + na::Scalar> PointN for na::Point2<S> {
     type Scalar = S;
-    
+
     fn dimensions() -> usize { 2 }
 
     fn nth(&self, index: usize) -> &S { &self[index] }
@@ -242,7 +242,7 @@ impl<S: SpadeNum + na::Scalar> PointN for na::Point2<S> {
 
 impl<S: SpadeNum + na::Scalar> PointN for na::Point3<S> {
     type Scalar = S;
-    
+
     fn dimensions() -> usize { 3 }
 
     fn nth(&self, index: usize) -> &S { &self[index] }
@@ -255,7 +255,7 @@ impl<S: SpadeNum + na::Scalar> PointN for na::Point3<S> {
 
 impl<S: SpadeNum + na::Scalar + na::Scalar> PointN for na::Point4<S> {
     type Scalar = S;
-    
+
     fn dimensions() -> usize { 4 }
 
     fn nth(&self, index: usize) -> &S { &self[index] }
